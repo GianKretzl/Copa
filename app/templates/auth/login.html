@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Entrar | Copa 2026 Album{% endblock %}
+
+{% block content %}
+<section class="auth auth-layout auth-showcase">
+    <div class="auth-hero">
+        <p class="eyebrow">Copa do Mundo 2026</p>
+        <h1>Controle interativo do album de figurinhas.</h1>
+        <p class="lead">
+            Clique para marcar como obtida, clique de novo para repetida, filtre por grupo e acompanhe o progresso.
+        </p>
+        <div class="auth-badges">
+            <span class="auth-badge">Checklist instantaneo</span>
+            <span class="auth-badge">Grupos A-L + especiais</span>
+            <span class="auth-badge">Progresso em tempo real</span>
+        </div>
+        <div class="album-note">
+            <strong>Persistencia local:</strong> suas marcacoes ficam salvas no navegador.
+        </div>
+        <div class="auth-mini">
+            <div class="auth-mini-grid">
+                <div class="auth-mini-card">
+                    <span class="auth-mini-label">Conclusao</span>
+                    <span class="auth-mini-value">0%</span>
+                </div>
+                <div class="auth-mini-card">
+                    <span class="auth-mini-label">Total</span>
+                    <span class="auth-mini-value">994</span>
+                </div>
+                <div class="auth-mini-card">
+                    <span class="auth-mini-label">Obtidas</span>
+                    <span class="auth-mini-value">0</span>
+                </div>
+                <div class="auth-mini-card">
+                    <span class="auth-mini-label">Faltantes</span>
+                    <span class="auth-mini-value">994</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="auth-card auth-card-raised">
+        <div class="auth-card-header">
+            <span class="auth-kicker">Dashboard pessoal</span>
+            <h2>Bem-vindo de volta</h2>
+            <p class="auth-sub">Entre para acessar sua colecao.</p>
+        </div>
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <label class="field">
+                <span>Email</span>
+                {{ form.email(class_="input") }}
+            </label>
+            <label class="field">
+                <span>Senha</span>
+                {{ form.password(class_="input") }}
+            </label>
+            {{ form.submit(class_="btn btn-primary full") }}
+        </form>
+        <p class="auth-note">
+            Ainda nao tem conta? <a href="{{ url_for('auth.register') }}">Crie agora</a>
+        </p>
+    </div>
+</section>
+{% endblock %}

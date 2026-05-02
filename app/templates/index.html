@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Copa 2026 Album{% endblock %}
+
+{% block content %}
+<section class="album-app" data-app="album">
+    <div class="album-hero">
+        <div>
+            <p class="eyebrow">Copa do Mundo 2026</p>
+            <h1>Controle interativo do album de figurinhas.</h1>
+            <p class="lead">
+                Clique para marcar como obtida, filtre por grupo e acompanhe o progresso.
+            </p>
+        </div>
+        <div class="album-note">
+            <strong>Persistencia local:</strong> suas marcacoes ficam salvas no navegador.
+        </div>
+    </div>
+
+    <div class="progress-board">
+        <div class="progress-card highlight">
+            <span class="stat-label">Conclusao geral</span>
+            <div class="progress-row">
+                <span class="stat-value" id="overallPercent">0%</span>
+                <span class="stat-meta" id="overallCount">0/0</span>
+            </div>
+            <div class="progress-bar">
+                <span id="overallBar"></span>
+            </div>
+        </div>
+        <div class="progress-card">
+            <span class="stat-label">Obtidas</span>
+            <span class="stat-value" id="ownedCount">0</span>
+        </div>
+        <div class="progress-card">
+            <span class="stat-label">Faltantes</span>
+            <span class="stat-value" id="missingCount">0</span>
+        </div>
+        <div class="progress-card">
+            <span class="stat-label">Total</span>
+            <span class="stat-value" id="totalCount">0</span>
+        </div>
+    </div>
+
+    <div class="album-controls">
+        <div class="control-group">
+            <span class="control-label">Status</span>
+            <div class="segmented" role="group" aria-label="Filtro de status">
+                <button class="seg-btn is-active" type="button" data-status="all">Todas</button>
+                <button class="seg-btn" type="button" data-status="missing">Faltantes</button>
+                <button class="seg-btn" type="button" data-status="owned">Obtidas</button>
+            </div>
+        </div>
+        <label class="field">
+            <span>Grupo</span>
+            <select class="input" id="groupFilter"></select>
+        </label>
+        <label class="field">
+            <span>Busca</span>
+            <input class="input" id="searchInput" type="text" placeholder="Sigla ou codigo" />
+        </label>
+        <div class="control-actions">
+            <button class="btn btn-ghost" id="resetBtn" type="button">Limpar filtros</button>
+        </div>
+    </div>
+
+    <div class="album-groups" id="albumGroups"></div>
+</section>
+{% endblock %}
